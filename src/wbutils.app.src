@@ -1,0 +1,13 @@
+{application, wbutils,
+ [
+  {description, "A collection of Erlang utilities used at Wildbit"},
+  {vsn, "0.0.1"},
+  {modules, [wbutils]},
+  {registered, []},
+  {applications, [kernel,
+                  stdlib,
+                  uuid,
+                  mustache,
+                  erlware_commons]},
+  {env, []}
+ ]}.
