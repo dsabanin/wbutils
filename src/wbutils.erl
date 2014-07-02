@@ -27,6 +27,7 @@ epoch_now_utc() ->
 create_tmp_dir() ->
   create_tmp_dir("wbutils").
 
+-spec random_uuid() -> string().
 random_uuid() ->
   uuid:to_string(uuid:uuid4()).
 
