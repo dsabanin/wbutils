@@ -27,9 +27,12 @@ epoch_now_utc() ->
 create_tmp_dir() ->
   create_tmp_dir("wbutils").
 
+random_uuid() ->
+  uuid:to_string(uuid:uuid4()).
+
 -spec create_tmp_dir(Base :: string()) -> {ok, string()}.
 create_tmp_dir(Base) ->
-  UUID = uuid:to_string(uuid:uuid4()),
+  UUID = random_uuid(),
   Path = filename:join([ec_file:tmp(), Base ++ UUID]),
   ok = ec_file:mkdir_p(Path),
   {ok, Path}.
