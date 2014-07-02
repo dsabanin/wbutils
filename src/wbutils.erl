@@ -12,6 +12,7 @@
 %% API
 -export([epoch_now_utc/0,
          create_tmp_dir/1,
+         random_uuid/0,
          delete_dir/1,
          md5_hex/1,
          template/2,
