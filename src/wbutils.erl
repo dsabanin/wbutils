@@ -1,6 +1,6 @@
 %%%-------------------------------------------------------------------
 %%% @author dsabanin
-%%% @copyright (C) 2014, <COMPANY>
+%%% @copyright (C) 2014, Wildbit, LLC
 %%% @doc
 %%%
 %%% @end
