@@ -13,6 +13,7 @@
 -export([epoch_now_utc/0,
          create_tmp_dir/0,
          create_tmp_dir/1,
+         random_uuid/0,
          delete_dir/1,
          md5_hex/1,
          template/2,
@@ -28,9 +29,13 @@ epoch_now_utc() ->
 create_tmp_dir() ->
   create_tmp_dir("wbutils").
 
+-spec random_uuid() -> string().
+random_uuid() ->
+  uuid:to_string(uuid:uuid4()).
+
 -spec create_tmp_dir(Base :: string()) -> {ok, string()}.
 create_tmp_dir(Base) ->
-  UUID = uuid:to_string(uuid:uuid4()),
+  UUID = random_uuid(),
   Path = filename:join([ec_file:tmp(), Base ++ UUID]),
   ok = ec_file:mkdir_p(Path),
   {ok, Path}.
