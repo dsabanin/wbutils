@@ -9,8 +9,11 @@
 -module(wbutils).
 -author("dsabanin").
 
+-define(TMP, "/tmp").
+
 %% API
 -export([epoch_now_utc/0,
+         create_tmp_dir/0,
          create_tmp_dir/1,
          random_uuid/0,
          delete_dir/1,
@@ -35,7 +38,7 @@ random_uuid() ->
 -spec create_tmp_dir(Base :: string()) -> {ok, string()}.
 create_tmp_dir(Base) ->
   UUID = random_uuid(),
-  Path = filename:join([ec_file:tmp(), Base ++ UUID]),
+  Path = filename:join([?TMP, Base ++ UUID]),
   ok = ec_file:mkdir_p(Path),
   {ok, Path}.
 
